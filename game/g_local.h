@@ -1109,5 +1109,9 @@ struct edict_s
 	// common data blocks
 	moveinfo_t		moveinfo;
 	monsterinfo_t	monsterinfo;
+
+	//STUFF I ADDED
+	char		hero;
+	char		classType;
 };
 

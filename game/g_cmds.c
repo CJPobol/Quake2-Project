@@ -899,6 +899,59 @@ void Cmd_PlayerList_f(edict_t *ent)
 	gi.cprintf(ent, PRINT_HIGH, "%s", text);
 }
 
+void Cmd_Dva_f(edict_t *ent)
+{
+	ent->max_health = 600;
+	ent->health = 600;
+	ent->hero = "dva";
+	ent->classType = "tank";
+	return;
+}
+
+void Cmd_Reinhardt_f(edict_t* ent)
+{
+	ent->max_health = 600;
+	ent->health = 600;
+	ent->hero = "rein";
+	ent->classType = "tank";
+	return;
+}
+
+void Cmd_Tracer_f(edict_t* ent)
+{
+	ent->max_health = 150;
+	ent->health = 150;
+	ent->hero = "tracer";
+	ent->classType = "damage";
+	return;
+}
+
+void Cmd_Hanzo_f(edict_t* ent)
+{
+	ent->max_health = 200;
+	ent->health = 200;
+	ent->hero = "hanzo";
+	ent->classType = "damage";
+	return;
+}
+
+void Cmd_Kiriko_f(edict_t* ent)
+{
+	ent->max_health = 200;
+	ent->health = 200;
+	ent->hero = "kiriko";
+	ent->classType = "support";
+	return;
+}
+
+void Cmd_Baptiste_f(edict_t* ent)
+{
+	ent->max_health = 200;
+	ent->health = 200;
+	ent->hero = "baptiste";
+	ent->classType = "support";
+	return;
+}
 
 /*
 =================
@@ -945,6 +998,30 @@ void ClientCommand (edict_t *ent)
 
 	if (Q_stricmp (cmd, "use") == 0)
 		Cmd_Use_f (ent);
+	else if (Q_stricmp(cmd, "dva") == 0)
+	{
+		Cmd_Dva_f(ent);
+	}
+	else if (Q_stricmp(cmd, "rein") == 0)
+	{
+		Cmd_Reinhardt_f(ent);
+	}
+	else if (Q_stricmp(cmd, "tracer") == 0)
+	{
+		Cmd_Tracer_f(ent);
+	}
+	else if (Q_stricmp(cmd, "hanzo") == 0)
+	{
+		Cmd_Hanzo_f(ent);
+	}
+	else if (Q_stricmp(cmd, "kiriko") == 0)
+	{
+		Cmd_Kiriko_f(ent);
+	}
+	else if (Q_stricmp(cmd, "bap") == 0)
+	{
+		Cmd_Baptiste_f(ent);
+	}
 	else if (Q_stricmp (cmd, "drop") == 0)
 		Cmd_Drop_f (ent);
 	else if (Q_stricmp (cmd, "give") == 0)
