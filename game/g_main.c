@@ -393,11 +393,25 @@ void G_RunFrame (void)
 			}
 		}
 
+		if (ent->classType == "tank")
+		{
+			ent->speed = 125;
+		}
+		if (ent->classType == "damage")
+		{
+			ent->speed = 75;
+		}
+		if (ent->classType == "support")
+		{
+			ent->health += 0.1;
+		}
+
 		if (i > 0 && i <= maxclients->value)
 		{
 			ClientBeginServerFrame (ent);
 			continue;
 		}
+
 
 		G_RunEntity (ent);
 	}

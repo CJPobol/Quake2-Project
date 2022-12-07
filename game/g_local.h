@@ -1111,7 +1111,7 @@ struct edict_s
 	monsterinfo_t	monsterinfo;
 
 	//STUFF I ADDED
-	char		hero;
-	char		classType;
+	int		hero;		//1 = dva; 2 = rein; 3 = tracer; 4 = hanzo; 5 = kiriko; 6 = baptiste
+	int		classType;	//1 = tank; 2 = damage; 3 = support
 };
 

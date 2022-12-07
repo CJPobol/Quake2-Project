@@ -903,8 +903,8 @@ void Cmd_Dva_f(edict_t *ent)
 {
 	ent->max_health = 600;
 	ent->health = 600;
-	ent->hero = "dva";
-	ent->classType = "tank";
+	ent->hero = 1;
+	ent->classType = 1;
 	return;
 }
 
@@ -912,8 +912,8 @@ void Cmd_Reinhardt_f(edict_t* ent)
 {
 	ent->max_health = 600;
 	ent->health = 600;
-	ent->hero = "rein";
-	ent->classType = "tank";
+	ent->hero = 2;
+	ent->classType = 1;
 	return;
 }
 
@@ -921,8 +921,8 @@ void Cmd_Tracer_f(edict_t* ent)
 {
 	ent->max_health = 150;
 	ent->health = 150;
-	ent->hero = "tracer";
-	ent->classType = "damage";
+	ent->hero = 3;
+	ent->classType = 2;
 	return;
 }
 
@@ -930,8 +930,8 @@ void Cmd_Hanzo_f(edict_t* ent)
 {
 	ent->max_health = 200;
 	ent->health = 200;
-	ent->hero = "hanzo";
-	ent->classType = "damage";
+	ent->hero = 4;
+	ent->classType = 2;
 	return;
 }
 
@@ -939,8 +939,8 @@ void Cmd_Kiriko_f(edict_t* ent)
 {
 	ent->max_health = 200;
 	ent->health = 200;
-	ent->hero = "kiriko";
-	ent->classType = "support";
+	ent->hero = 5;
+	ent->classType = 3;
 	return;
 }
 
@@ -948,8 +948,8 @@ void Cmd_Baptiste_f(edict_t* ent)
 {
 	ent->max_health = 200;
 	ent->health = 200;
-	ent->hero = "baptiste";
-	ent->classType = "support";
+	ent->hero = 6;
+	ent->classType = 3;
 	return;
 }
 
