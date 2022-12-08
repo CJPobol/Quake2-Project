@@ -828,8 +828,21 @@ void Blaster_Fire (edict_t *ent, vec3_t g_offset, int damage, qboolean hyper, in
 
 	VectorScale (forward, -2, ent->client->kick_origin);
 	ent->client->kick_angles[0] = -1;
+	if (ent->hero == 3) 
+		fire_blaster(ent, start, forward, damage, 1000, effect, hyper); //tracer has faster firing
+	else if (ent->hero == 4)
+		fire_blaster (ent, start, forward, damage * 10, 1000, effect, hyper); //hanzo has bonus damage
+	else if (ent->hero == 6)
+	{ //baptiste shoots 3 times
+		fire_blaster(ent, start, forward, damage, 1000, effect, hyper);
+		fire_blaster(ent, start, forward, damage, 800, effect, hyper);
+		fire_blaster(ent, start, forward, damage, 600, effect, hyper);
+	}
+	else if (ent->hero == 5)
+		fire_blaster(ent, start, forward, damage * 10, 500, effect, hyper); //kiriko has slower bullets but bonus damage
+	else
+		fire_blaster(ent, start, forward, damage, 1000, effect, hyper);
 
-	fire_blaster (ent, start, forward, damage*1000, 1000, effect, hyper);
 
 	// send muzzle flash
 	gi.WriteByte (svc_muzzleflash);
@@ -861,7 +874,18 @@ void Weapon_Blaster (edict_t *ent)
 	static int	pause_frames[]	= {19, 32, 0};
 	static int	fire_frames[]	= {5, 0};
 
-	Weapon_Generic (ent, 4, 8, 52, 55, pause_frames, fire_frames, Weapon_Blaster_Fire);
+	if (ent->hero == 3) //tracer
+		Weapon_Generic(ent, 3, 5, 6, 7, NULL, fire_frames, Weapon_Blaster_Fire);
+	else if (ent->hero == 4) //hanzo
+		Weapon_Generic(ent, 4, 15, 80, 85, pause_frames, fire_frames, Weapon_Blaster_Fire);
+	else if (ent->hero == 1) //dva
+		Weapon_Generic(ent, 3, 6, 7, 9, pause_frames, fire_frames, Weapon_Blaster_Fire);
+	else if (ent->hero == 6) //baptiste
+		Weapon_Generic(ent, 3, 9, 12, 15, pause_frames, fire_frames, Weapon_Blaster_Fire);
+	else if (ent->hero == 2) //reinhardt
+		Weapon_Generic(ent, 4, 13, 15, 20, pause_frames, fire_frames, Weapon_Blaster_Fire);
+	else 
+		Weapon_Generic(ent, 4, 8, 52, 55, pause_frames, fire_frames, Weapon_Blaster_Fire);
 }
 
 
