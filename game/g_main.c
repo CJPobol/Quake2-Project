@@ -393,15 +393,15 @@ void G_RunFrame (void)
 			}
 		}
 
-		if (ent->classType == "tank")
+		if (ent->classType == 1)
 		{
-			ent->speed = 125;
+			ent->moveinfo.move_speed = 50;
 		}
-		if (ent->classType == "damage")
+		if (ent->classType == 2)
 		{
-			ent->speed = 75;
+			ent->moveinfo.move_speed = 200;
 		}
-		if (ent->classType == "support")
+		if (ent->classType == 3)
 		{
 			ent->health += 0.1;
 		}
