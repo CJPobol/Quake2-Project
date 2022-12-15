@@ -303,6 +303,7 @@ void HelpComputer (edict_t *ent)
 {
 	char	string[1024];
 	char	*sk;
+	char	*hero;
 
 	if (skill->value == 0)
 		sk = "easy";
@@ -313,19 +314,34 @@ void HelpComputer (edict_t *ent)
 	else
 		sk = "hard+";
 
+	if (ent->hero == 1)
+		hero = "D.Va";
+	else if (ent->hero == 2)
+		hero = "Reinhardt";
+	else if (ent->hero == 3)
+		hero = "Tracer";
+	else if (ent->hero == 4)
+		hero = "Hanzo";
+	else if (ent->hero == 5)
+		hero = "Kiriko";
+	else if (ent->hero == 6)
+		hero = "Baptiste";
+	else
+		hero = "None";
+
 	// send the layout
 	Com_sprintf (string, sizeof(string),
 		"xv 32 yv 8 picn help "			// background
 		"xv 202 yv 12 string2 \"%s\" "		// skill
 		"xv 0 yv 24 cstring2 \"%s\" "		// level name
 		"xv 0 yv 54 cstring2 \"Capture the Objective to win.\nFight off monsters to defend\nthe point. Press ` to\nchange hero\" "		// help 1
-		"xv 0 yv 110 cstring2 \"Left Click: Primary Fire\nShift: Movement   E: Ability\" "		// help 2
-		"xv 50 yv 164 string2 \" kills     goals    secrets\" "
-		"xv 50 yv 172 string2 \"%3i/%3i     %i/%i       %i/%i\" ", 
+		"xv 0 yv 110 cstring2 \"Left Click: Primary Fire\nShift: Movement Ability\" "		// help 2
+		"xv 50 yv 164 string2 \" kills     Hero    secrets\" "
+		"xv 50 yv 172 string2 \"%3i/%3i     %s      %i/%i\" ", 
 		sk,
 		level.level_name,
 		level.killed_monsters, level.total_monsters, 
-		level.found_goals, level.total_goals,
+		hero,
 		level.found_secrets, level.total_secrets);
 
 	gi.WriteByte (svc_layout);
