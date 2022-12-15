@@ -8,3 +8,12 @@ To play this mod, users will need the gamex86.dll for the mod as well as the con
 This mod is played by using the selected hero's kit to secure an objective point on the map. For the sake of testing in a single player environment, the player must defend the objective from AI monsters as they try and capture it. Monsters on the point will contest it and halt capture progression. Successful capture of the objective is victory.
 
 Players can switch what hero they are playing as at any time.
+
+At time of submission, the following deliverables are complete:
+Mod Folder
+Auto Launch Shortcut
+UI Updates
+Help Screen
+This README file
+Overwatch Characters (6)
+Overwatch Weapons/Abilities (partially; just weapons atm)
